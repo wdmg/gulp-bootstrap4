@@ -1,0 +1,11 @@
+.npm
+node_modules
+npm-debug.log
+assets
+*.swp
+.cache
+.idea
+.git
+package-lock.json
+Thumbs.db
+.DS_Store
