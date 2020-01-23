@@ -3,7 +3,7 @@
 
 Проект содержит все необходимые включения для генерации Bootstrap4 темы, в том числе кастомные переменные, миксины и компоненты.
 
-#Требования к окружению
+## Требования к окружению
 Для создания окружения необходимо иметь следующие установленные инструменты:
 
 1. [Node.js](https://nodejs.org)
@@ -12,13 +12,13 @@
 
 Если у Вас нет данных инструментов - их необходимо установить.
 
-#Как использовать
+## Как использовать
 1. Клонируйте репозиторий Gulp Bootstrap4 с GitHub: `git clone https://github.com/wdmg/gulp-bootstrap4.git`
 2. Перейдите в директорию, куда вы произвели клонирование, например: `cd gulp-bootstrap4`
 3. Выполните команду для установки зависимостей: `npm i`
 4. И запустите первую сборку проекта: `gulp`
 
-#Что включено
+## Что включено
 * [browser-sync](https://browsersync.io/docs/gulp) // Локальный веб-сервер для LiveReload разработки
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) // Для сборки и компиляции SCSS в CSS
 * [gulp-cache](https://www.npmjs.com/package/gulp-cache) // Плагин кеширования (используется при сжатии изображений)
@@ -34,12 +34,12 @@
 * [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) // Плагин сжатия JPEG-изображений
 * [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) // Плагин сжатия PNG-изображений
 
-#Задания Gulp
+## Задания Gulp
 `default` (включает такие задания как `build`, `watch`)
 `build` (включает такие задания как `clean`, `build:html`, `build:js`, `build:css`, `build:fonts`, `build:images`)
 `watch` (включает такие задания как `build:html`, `build:js`, `build:css`, `build:fonts`, `build:images`)
 
-#Конфигурация Gulp
+## Конфигурация Gulp
 Представлен в виде нескольких объектов `paths`, который содержит сведения о местоположении файлов и директорий необходимых для сборки проекта и `config`, который определяет основные параметры сборки.
 Объект `paths` содержит конфигурацию путей для заданий `build`, `src`, `watch`, `clean`.
 Объект `config` содержит конфигурацию для модулей `gulp-autoprefixer`, `gulp-imagemin`, `browser-sync` и `gulp-cache`.
