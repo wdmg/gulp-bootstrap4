@@ -3,12 +3,14 @@ const gulpIf = require('gulp-if');
 const cleaner = require('gulp-clean');
 const gulpSass = require('gulp-sass');
 const jsConcat = require('gulp-concat');
-const jsUglify = require('gulp-uglify');
-const cssMinify = require('gulp-cssmin');
+const jsUglify = require('gulp-terser');
+const cleanCSS = require('gulp-clean-css');
+const beautify = require('gulp-beautify');
+const rename = require('gulp-rename');
 const jsInclude = require('gulp-include');
 const htmlMinify = require('gulp-htmlmin');
-const imageMinify = require('gulp-imagemin');
 const sourceMaps = require('gulp-sourcemaps');
+const cssExtend = require('gulp-autoprefixer');
 const htmlPartial = require('gulp-html-partial');
 const browserSync = require('browser-sync').create();
 const isProduction = process.env.NODE_ENV === 'prod';
@@ -26,31 +28,43 @@ function html() {
 
 function css() {
     return gulp.src('src/sass/style.scss')
-        .pipe(gulpIf(!isProduction, sourceMaps.init()))
+        .pipe(sourceMaps.init())
         .pipe(gulpSass({
             includePaths: ['node_modules']
         }).on('error', gulpSass.logError))
-        .pipe(gulpIf(!isProduction, sourceMaps.write()))
-        .pipe(gulpIf(isProduction, cssMinify()))
+        .pipe(gulpIf(isProduction, cleanCSS()))
+        .pipe(cssExtend({
+            cascade: false
+        }))
+        .pipe(beautify.css({
+            indent_size: 2
+        }))
+        .pipe(sourceMaps.write())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('docs/css/'));
 }
 
 function js() {
     return gulp.src('src/js/*.js')
+        .pipe(sourceMaps.init())
         .pipe(jsInclude({
             extensions: 'js',
             hardFail: true,
             separateInputs: true
         }))
         .on('error', console.log)
+        .pipe(beautify.js({
+            indent_size: 2
+        }))
         .pipe(jsConcat('main.js'))
         .pipe(gulpIf(isProduction, jsUglify()))
+        .pipe(sourceMaps.write())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('docs/js'));
 }
 
 function images() {
     return gulp.src('src/images/*')
-        .pipe(gulpIf(isProduction, imageMinify()))
         .pipe(gulp.dest('docs/images/'));
 }
 

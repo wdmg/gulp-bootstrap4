@@ -1,11 +1,11 @@
 {
   "name": "gulp-bootstrap4",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Blank Bootstrap4 project with Gulp",
   "scripts": {
     "start": "gulp",
     "dev": "gulp serve",
-    "prod": "cross-env NODE_ENV=prod gulp"
+    "prod": "cross-env NODE_ENV=dev gulp"
   },
   "author": {
     "name": "W.D.M.Group, Ukraine",
@@ -28,26 +28,43 @@
   "bugs": {
     "url": "https://github.com/wdmg/gulp-bootstrap4/issues"
   },
+  "browserslist": [
+    "defaults",
+    ">= 1%",
+    "last 1 major version",
+    "not dead",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
   "devDependencies": {
-    "browser-sync": "^2.26.3",
     "cross-env": "^7.0.2",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-beautify": "^3.0.0",
     "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-html-partial": "^1.0.1",
+    "gulp-file-include": "^2.2.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^5.0.3",
     "gulp-include": "^2.4.1",
-    "gulp-sass": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
+    "gulp-terser": "^1.4.1"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
+    "bootstrap": "^4.5.3",
+    "jquery": "~3.5.1",
+    "jquery-helper": "^1.7.1",
     "popper.js": "^1.16.1",
-    "jquery-helper": "^1.7.1"
+    "roboto-fontface": "^0.10.0",
+    "sticky-sidebar": "^3.3.1"
   }
 }
