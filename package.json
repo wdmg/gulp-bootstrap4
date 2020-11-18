@@ -43,6 +43,7 @@
     "Opera >= 30"
   ],
   "devDependencies": {
+    "browser-sync": "^2.26.13",
     "cross-env": "^7.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -52,7 +53,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-file-include": "^2.2.2",
+    "gulp-html-partial": "^1.0.1",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
     "gulp-include": "^2.4.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
